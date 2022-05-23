@@ -17,6 +17,10 @@ typedef enum {
     move_backward,
     move_right,
     move_left,
+    press_up,
+    press_down,
+    press_right,
+    press_left,
     open_menu,
     close_menu,
     press_a,
@@ -39,27 +43,16 @@ static const command_t wake_up_hang[] = {
 };
 
 static const command_t fly_to_breading_steps[] = {
-    { hang, 50 },
-    { press_a, 5 },
-    { hang, 50 },
-    { press_x, 7},
-    { hang, 70 },
-    { press_a, 5 },
-    { hang, 50 },
-    { press_a, 5 },
-    { hang, 50 },
-    { press_a, 5 },
-    { hang, 50 },
-    { press_a, 5 },
-    { hang, 50 },
-    { press_a, 5 },
-    { hang, 50 },
-    { press_a, 5 }
+    { press_x, 5},
+    { press_a, 5},
+    { press_a, 5},
+    { press_a, 5},
+    { hang, 30},
 };
 
 static const command_t get_egg_steps[] = {
     { move_backward, 70 }, // need to tune
-    {reset_view_angle, 5 },
+    { reset_view_angle, 5 },
     { move_right, 10 },
     { press_a, 5 },
     { hang, 20 },
