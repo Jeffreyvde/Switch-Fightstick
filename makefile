@@ -17,15 +17,17 @@ ARCH         = AVR8
 F_CPU        = 16000000
 F_USB        = $(F_CPU)
 OPTIMIZATION = s
-TARGET       = Joystick
-SRC          = $(TARGET).c Descriptors.c $(LUFA_SRC_USB)
+TARGET       = Bot
+SRC          = Joystick.c Descriptors.c Bot.c $(LUFA_SRC_USB)
+OUT_DIR      = out
 LUFA_PATH    = ../LUFA/LUFA
 CC_FLAGS     = -DUSE_LUFA_CONFIG_HEADER -IConfig/
-LD_FLAGS     =
+LD_FLAGS     = 
+OUTPUT_FILES = $(shell find $(SOURCEDIR) -name '$(TARGET).*')
+OUTPUT_FOLDER := ./output
 
 # Default target
 all:
-
 # Include LUFA build script makefiles
 include $(LUFA_PATH)/Build/lufa_core.mk
 include $(LUFA_PATH)/Build/lufa_sources.mk
